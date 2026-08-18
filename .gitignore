@@ -1,0 +1,10 @@
+node_modules/
+.pnpm-store/
+dist/
+.env
+.env.*
+.vscode/
+.idea/
+.DS_Store
+*.log
+*.tsbuildinfo
