@@ -1,4 +1,4 @@
-import { FormEvent, PointerEvent, useRef, useState } from "react";
+import { FormEvent, PointerEvent, useEffect, useRef, useState } from "react";
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -83,6 +83,7 @@ function handleSubmit(event: FormEvent<HTMLFormElement>) {
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [privacyOpen, setPrivacyOpen] = useState(false);
   const shellRef = useRef<HTMLDivElement>(null);
   const pointerFrame = useRef<number | null>(null);
   const pointerPosition = useRef({ x: 50, y: 50 });
@@ -102,6 +103,14 @@ export default function Home() {
     shellRef.current?.style.setProperty("--particle-shift-x", "0px");
     shellRef.current?.style.setProperty("--particle-shift-y", "0px");
   };
+  useEffect(() => {
+    if (!privacyOpen) return;
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setPrivacyOpen(false);
+    };
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [privacyOpen]);
   return (
     <div className="app-shell" id="top" ref={shellRef}>
       <div className="particle-field" aria-hidden="true">{Array.from({ length: 22 }, (_, index) => <i key={index} />)}</div>
@@ -144,7 +153,8 @@ export default function Home() {
 
         <section id="contact" className="ledger-section contact-section"><div className="rail contact-grid"><div className="contact-copy"><p className="eyebrow"><b /> Get in Touch</p><h2>Let’s Work<br /><span>Together.</span></h2><h3>Start with a free consultation</h3><p>Message on WhatsApp or email with a little about your business and project. You will receive a straightforward reply within 24 hours.</p><div className="contact-links"><a href={whatsappUrl} target="_blank" rel="noreferrer"><MessageCircle size={19} /><span><small>WhatsApp</small><b>{contactNumber}</b></span><ArrowUpRight size={15} /></a><a href={`mailto:${contactEmail}`}><Mail size={18} /><span><small>Email</small><b>{contactEmail}</b></span><ArrowUpRight size={15} /></a></div><div className="contact-meta"><span><MapPin size={15} /> Arifwala, Punjab, Pakistan</span><span><Globe2 size={15} /> Working with businesses worldwide</span></div></div><form className="contact-form" onSubmit={handleSubmit}><div className="form-topline"><span>PROJECT INTAKE</span><BrandMark small /></div><div className="form-row"><label>Your Name<input name="name" placeholder="Your name" required /></label><label>Email Address<input name="email" type="email" placeholder="you@business.com" required /></label></div><label>Business Name & Country<input name="business" placeholder="Business and country" /></label><label>Estimated Budget <input name="budget" placeholder="Optional" /></label><label>Tell me about your project<textarea name="project" placeholder="What should the new website help you achieve?" required /></label><button type="submit" className="button primary submit">Send via WhatsApp <Send size={16} /></button><p>or email <a href={`mailto:${contactEmail}`}>{contactEmail}</a></p></form></div></section>
       </main>
-      <footer><a href="#top" className="brand"><BrandMark small /><span>Zalim-<b>Marketing</b></span></a><p>© 2026 Zalim-Marketing · Arifwala, Pakistan</p><div><a href="#services">Services</a><a href="#work">Work</a><a href="#process">Process</a><a href="#contact">Contact</a></div></footer>
+      <footer><a href="#top" className="brand"><BrandMark small /><span>Zalim-<b>Marketing</b></span></a><p>© 2026 Zalim-Marketing · Arifwala, Pakistan</p><div><a href="#services">Services</a><a href="#work">Work</a><a href="#process">Process</a><a href="#contact">Contact</a><button className="footer-policy" type="button" onClick={() => setPrivacyOpen(true)}>Privacy Policy</button></div></footer>
+      {privacyOpen && <div className="privacy-backdrop" role="presentation" onMouseDown={() => setPrivacyOpen(false)}><section className="privacy-dialog" role="dialog" aria-modal="true" aria-labelledby="privacy-title" onMouseDown={(event) => event.stopPropagation()}><button className="privacy-close" type="button" aria-label="Close Privacy Policy" onClick={() => setPrivacyOpen(false)}><X size={18} /></button><p className="eyebrow"><b /> Privacy Policy</p><h2 id="privacy-title">Your details stay private.</h2><p>Any enquiry, business detail, project file, and conversation you share with Zalim-Marketing is treated as confidential. We do not sell or share your information with anyone else.</p><div className="privacy-rule" /><h3>Clear work. Honest revisions.</h3><p>We keep refining your website, portfolio, or store with you until you are happy with the agreed direction. There is no arbitrary limit on reasonable revisions within the agreed project scope. If a request moves beyond that scope, we discuss it clearly before any extra work begins.</p><p className="privacy-contact">Questions about your information? <a href={`mailto:${contactEmail}`}>{contactEmail}</a></p></section></div>}
     </div>
   );
 }
