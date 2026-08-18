@@ -49,11 +49,11 @@ const services = [
 
 const projects = [
   { featured: true, image: "/images/medical4me-home.webp", country: "Pakistan · Global", category: "medical4me.com", title: "Expert-reviewed medicine information", text: "A live health-information platform with medicine search, disease guides, a symptom checker, latest posts, and an educational Medicine Finder.", tags: ["Medicine Finder", "Symptom Checker", "Latest Posts", "SEO"], url: "https://medical4me.com" },
-  { image: "/images/zentro-reference-project-1.jpg", live: true, country: "Stockport, UK", category: "Car Wash & Tyre Place", title: "SK4 Hand Car Wash", text: "Website with online booking, pricing, gallery and WhatsApp contact.", tags: ["WordPress", "Booking", "SEO"] },
-  { image: "/images/zentro-reference-project-2.jpg", country: "London, UK", category: "Barbershop", title: "Pablo's Latin Barbershop", text: "Premium barbershop site with booking, services, and direct calls to action.", tags: ["WordPress", "Booking", "Local"] },
-  { image: "/images/zentro-reference-project-3.jpg", live: true, country: "Manchester, UK", category: "Car Wash & Tyre Place", title: "Droylsden Big Wash", text: "Service website with clear pricing, booking, and local information.", tags: ["WordPress", "SEO", "WhatsApp"] },
-  { image: "/images/zentro-reference-project-4.jpg", country: "Exeter, UK", category: "Fitness & Personal Training", title: "Scott Atkins Fitness", text: "A direct personal-training website with services and enquiry paths.", tags: ["WordPress", "Fitness", "WhatsApp"] },
-  { image: "/images/zentro-reference-project-5.jpg", country: "Sydney, Australia", category: "Men's Grooming", title: "AW Men's — North Sydney Barber", text: "Premium booking-led website for a local grooming business.", tags: ["WordPress", "Luxury", "Australia"], imagePosition: "center 20%" },
+  { image: "/images/project-carwash.jpg", live: true, country: "Stockport, UK", category: "Car Wash & Tyre Place", title: "SK4 Hand Car Wash", text: "Website with online booking, pricing, gallery and WhatsApp contact.", tags: ["WordPress", "Booking", "SEO"] },
+  { image: "/images/project-barbershop.jpg", country: "London, UK", category: "Barbershop", title: "Pablo's Latin Barbershop", text: "Premium barbershop site with booking, services, and direct calls to action.", tags: ["WordPress", "Booking", "Local"] },
+  { image: "/images/project-tyres.jpg", live: true, country: "Manchester, UK", category: "Car Wash & Tyre Place", title: "Droylsden Big Wash", text: "Service website with clear pricing, booking, and local information.", tags: ["WordPress", "SEO", "WhatsApp"] },
+  { image: "/images/project-fitness.jpg", country: "Exeter, UK", category: "Fitness & Personal Training", title: "Scott Atkins Fitness", text: "A direct personal-training website with services and enquiry paths.", tags: ["WordPress", "Fitness", "WhatsApp"] },
+  { image: "/images/project-grooming.jpg", country: "Sydney, Australia", category: "Men's Grooming", title: "AW Men's — North Sydney Barber", text: "Premium booking-led website for a local grooming business.", tags: ["WordPress", "Luxury", "Australia"], imagePosition: "center 20%" },
 ];
 
 const processSteps = [
