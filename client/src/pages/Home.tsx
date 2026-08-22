@@ -43,7 +43,8 @@ const repeatingMarkets = [...markets, ...markets];
 const socialLinks = [
   { label: "Instagram", href: "https://instagram.com/zalimmarketing", icon: Instagram },
   { label: "Discord", href: "https://discord.com/invite/RhfqQ2YG", icon: MessageCircle },
-  { label: "GitHub", href: "https://github.com/raosaqlainking", icon: Github },
+  { label: "GitHub", href: "https://github.com/RaoSaqlainM/zalim-marketing-portfolio", icon: Github },
+  { label: "WhatsApp", href: whatsappUrl, icon: MessageCircle },
 ];
 
 const services = [
@@ -120,7 +121,7 @@ export default function Home() {
     return () => document.removeEventListener("keydown", handleEscape);
   }, [privacyOpen]);
   return (
-    <div className="app-shell" id="top" ref={shellRef}>
+    <div className="app-shell" id="top" ref={shellRef} data-style="signal-editorial">
       <div className="particle-field" aria-hidden="true">{Array.from({ length: 22 }, (_, index) => <i key={index} />)}</div>
       <nav className="site-nav" aria-label="Primary navigation">
         <a href="#top" className="brand"><BrandMark small /><span>Zalim-<b>Marketing</b></span></a>
@@ -132,12 +133,14 @@ export default function Home() {
 
       <main>
         <section className="hero-section" aria-labelledby="hero-title" onPointerMove={handlePointerMove} onPointerLeave={resetParticles}>
-          <div className="hero-circuit" aria-hidden="true"><span /><span /><span /><span /><BrandMark /></div>
+          <div className="hero-circuit" aria-hidden="true"><span /><span /><span /><span /><BrandMark /><p>01 / ZALIM<br />SIGNAL STUDIO</p><em>SCROLL TO EXPLORE</em></div>
+          <div className="hero-media" aria-hidden="true"><img src="/assets/zalim-editorial-hero.webp" alt="" /><span>LIVE SYSTEM PREVIEW</span><i>WEB · SOCIAL · GROWTH</i></div>
           <div className="rail hero-rail">
             <div className="status-row"><span className="status-dot" /> Available for new projects <i>Web · Social · Growth</i></div>
             <p className="eyebrow"><b /> Web Developer · Arifwala, Pakistan</p>
-            <h1 id="hero-title">I build websites<br />that <span>grow</span><br />your <strong>business.</strong></h1>
-            <p className="hero-desc">Hi, I’m <strong>Saqlain Mushtaq</strong> — founder of Zalim-Marketing. I design and build fast, modern, professional websites for businesses across the UK, Australia, Canada, Ireland, Dubai and Pakistan.</p>
+            <div className="hero-kicker"><span>Independent digital studio</span><span>2026</span></div>
+            <h1 id="hero-title">I build websites<br />that <span>make business</span><br /><strong>feel bigger.</strong></h1>
+            <p className="hero-desc">Hi, I’m <strong>Saqlain Mushtaq</strong> — founder of Zalim-Marketing. I create direct, modern websites and social campaigns that make it easier for people to trust your business and take the next step.</p>
             <div className="hero-actions"><a href="#work" className="button primary">View My Work <ArrowDownRight size={16} /></a><a href="#contact" className="button whatsapp"><MessageCircle size={16} /> Free Consultation</a><a href="#contact" className="text-link">Get a Quote <ArrowUpRight size={15} /></a></div>
             <div className="proof-metrics"><div><b>20+</b><span>Projects Delivered</span></div><div><b>6</b><span>Countries Served</span></div><div><b>100%</b><span>Client Satisfaction</span></div><div><b>24h</b><span>Response Time</span></div></div>
           </div>
@@ -151,7 +154,7 @@ export default function Home() {
 
         <section id="services" className="ledger-section services-section"><div className="rail"><div className="section-head"><div><p className="eyebrow"><b /> What I Offer</p><h2>Services that<br /><span>move business.</span></h2></div><p>Everything your business needs to look professional online and make the next step clear.</p></div><div className="service-grid">{services.map((service, index) => { const Icon = service.icon; return <article className={`service-card ${service.featured ? "social-service" : ""}`} key={service.title}>{service.image && <img className="service-visual" src={service.image} loading="lazy" decoding="async" alt="" />}<span className="card-index">0{index + 1}</span><Icon className={`tone-${service.tone}`} size={25} strokeWidth={1.65} /><h3>{service.title}</h3><p>{service.text}</p>{service.featured && <div className="channel-row"><span>Meta</span><span>Instagram</span><span>TikTok</span></div>}<small>{service.tag}</small></article>; })}</div></div></section>
 
-        <section id="work" className="work-section"><div className="rail"><div className="section-head section-head-work"><div><p className="eyebrow"><b /> Recent Work</p><h2>Projects with<br /><span>purpose.</span></h2></div><p>Real websites developed for real businesses.</p></div><div className="project-grid">{projects.map((project) => <article className={`project-card ${project.featured ? "medical-card" : ""}`} key={project.title}><div className="project-image" style={{ backgroundPosition: project.imagePosition ?? "center top" }}><img src={project.image} loading="lazy" decoding="async" alt={project.featured ? "Medical4Me homepage" : ""} /><div className="image-scan" />{project.live && <span className="live-pill"><i /> Live</span>}<span className="country-pill">{project.country}</span>{project.featured && <div className="medical-label"><BrandMark small /><span>LIVE WEBSITE</span></div>}</div><div className="project-body"><p>{project.category}</p><h3>{project.title}</h3><span>{project.text}</span>{project.featured && <a className="medical-email" href="mailto:support@medical4me.com"><Mail size={13} /> support@medical4me.com</a>}<div className="project-tags">{project.tags.map((tag) => <i key={tag}>{tag}</i>)}</div>{project.url && <a href={project.url} target="_blank" rel="noreferrer">Visit medical4me.com <ArrowUpRight size={14} /></a>}</div></article>)}<article className="next-card"><BrandMark /><p className="eyebrow"><b /> Your Business</p><h3>Next Project —<br />Could Be Yours</h3><span>Start with a free conversation and see a clear direction first.</span><a href="#contact" className="button whatsapp"><MessageCircle size={16} /> Get Free Demo</a></article></div></div></section>
+        <section id="work" className="work-section"><div className="rail"><div className="section-head section-head-work"><div><p className="eyebrow"><b /> Selected Work</p><h2>Projects with<br /><span>presence.</span></h2></div><div className="work-intro"><p>Clear identity, practical journeys, and content built to make a business easier to choose.</p><span>06 / FEATURED STORIES</span></div></div><div className="project-grid">{projects.map((project, index) => <article className={`project-card ${project.featured ? "medical-card" : ""}`} key={project.title}><div className="project-image" style={{ backgroundPosition: project.imagePosition ?? "center top" }}><img src={project.image} loading="lazy" decoding="async" alt={project.featured ? "Medical4Me homepage" : ""} /><div className="image-scan" />{project.live && <span className="live-pill"><i /> Live</span>}<span className="country-pill">{project.country}</span><span className="project-number">0{index + 1}</span>{project.featured && <div className="medical-label"><BrandMark small /><span>LIVE WEBSITE</span></div>}</div><div className="project-body"><p>{project.category}</p><h3>{project.title}</h3><span>{project.text}</span>{project.featured && <a className="medical-email" href="mailto:support@medical4me.com"><Mail size={13} /> support@medical4me.com</a>}<div className="project-tags">{project.tags.map((tag) => <i key={tag}>{tag}</i>)}</div>{project.url && <a href={project.url} target="_blank" rel="noreferrer">Visit medical4me.com <ArrowUpRight size={14} /></a>}</div></article>)}<article className="next-card"><BrandMark /><p className="eyebrow"><b /> Your Business</p><h3>Next Project —<br />Could Be Yours</h3><span>Start with a free conversation and see a clear direction first.</span><a href="#contact" className="button whatsapp"><MessageCircle size={16} /> Get Free Demo</a></article></div></div></section>
 
         <section id="process" className="ledger-section process-section"><div className="rail"><div className="section-head"><div><p className="eyebrow"><b /> How It Works</p><h2>My process is<br /><span>clear and simple.</span></h2></div><p>A straightforward process from first message to a live website, without unnecessary loops or confusing steps.</p></div><div className="process-grid">{processSteps.map(([number, title, text]) => <article key={number}><b>{number}</b><div><h3>{title}</h3><p>{text}</p></div><Check size={17} /></article>)}</div></div></section>
 
